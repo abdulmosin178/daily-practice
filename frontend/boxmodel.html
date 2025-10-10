@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boxmodel</title>
+    <style>
+        .box{
+          border:10px solid red;
+          padding: 50px;
+          margin:50px auto;
+          width: 200px;
+          height:150px;
+          background-color: lightblue;
+        }
+        .parent{
+            width:300px;
+            padding:20px;
+            border: 5px solid yellow;
+            margin: 50px ;
+            background-color: blue;
+            text-align: center;
+        }
+        .child{
+            width:50%;
+            padding: 15px;
+            border:3px solid red;
+            margin:10px 0;
+            text-align: center;
+            background-color: aqua;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">box model</div>
+    <div class="parent">
+  Parent Box
+  <div class="child">Child Box</div>
+  <div class="child">Another Child</div>
+</div>
+    
+</body>
+</html>

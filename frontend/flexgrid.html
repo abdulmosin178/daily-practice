@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexgrid</title>
+    <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+
+  /* Flex Container */
+  .container {
+    display: flex;
+    flex-direction: row;        /* row | row-reverse | column | column-reverse */
+    justify-content: space-around; /* flex-start | flex-end | center | space-between | space-around | space-evenly */
+    align-items: center;        /* flex-start | flex-end | center | stretch | baseline */
+    align-content: space-between; /* only works if multiple lines (flex-wrap: wrap) */
+    flex-wrap: wrap;            /* nowrap | wrap | wrap-reverse */
+    height: 300px;
+    border: 2px dashed #333;
+    padding: 10px;
+    gap: 5px;                  /* space between flex items */
+    background-color: #f0f0f0;
+  }
+
+  /* Flex Items */
+  .item {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    flex: 1 1 100px;            /* flex-grow | flex-shrink | flex-basis */
+    order: 0;                    /* order: changes position in container */
+    align-self: auto;            /* auto | flex-start | flex-end | center | baseline | stretch */
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+   <!--FLEX BOX
+   IT IS ONE DIMENTIONAL
+   flex-direction: row | column | row-reverse | column-reverse
+   display: flex;              /* activates flexbox */
+
+
+
+flex-direction: row;         /* main axis direction */
+
+
+flex-wrap: nowrap | wrap | wrap-reverse;  /* whether items wrap */
+
+
+justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;  /* main axis alignment */
+
+
+align-items: flex-start | flex-end | center | baseline | stretch;  /* cross axis alignment */
+
+
+align-content: flex-start | flex-end | center | space-between | space-around | stretch; /* multi-line cross-axis alignment */
+
+
+gap: 10px; /* space between items (modern way instead of margin) */
+
+    --> 
+<h2>Flexbox Demo</h2>
+<div class="container">
+  <div class="item">Item 1</div>
+  <div class="item">Item 2</div>
+  <div class="item">Item 3</div>
+  <div class="item">Item 4</div>
+</div>
+</body>
+</html>
