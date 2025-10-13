@@ -1,74 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flexgrid</title>
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flex & Grid Demo with Comments</title>
+<style>
   body {
     font-family: Arial, sans-serif;
     margin: 20px;
   }
 
-  /* Flex Container */
-  .container {
-    display: flex;
-    flex-direction: row;        /* row | row-reverse | column | column-reverse */
-    justify-content: space-around; /* flex-start | flex-end | center | space-between | space-around | space-evenly */
-    align-items: center;        /* flex-start | flex-end | center | stretch | baseline */
-    align-content: space-between; /* only works if multiple lines (flex-wrap: wrap) */
-    flex-wrap: wrap;            /* nowrap | wrap | wrap-reverse */
-    height: 300px;
+  /* ========================= */
+  /* FLEXBOX CONTAINER */
+  /* ========================= */
+  .flex-container {
+    display: flex;                /* activate flex layout */
+    flex-direction: row;          /* main axis: row | row-reverse | column | column-reverse */
+    flex-wrap: wrap;              /* wrap: nowrap | wrap | wrap-reverse */
+    justify-content: space-around;/* main axis alignment: flex-start | flex-end | center | space-between | space-around | space-evenly */
+    align-items: center;          /* cross axis alignment: flex-start | flex-end | center | stretch | baseline */
+    align-content: space-between; /* multi-line alignment along cross axis (only if wrapped) */
+    gap: 10px;                     /* space between flex items */
+    height: 200px;
     border: 2px dashed #333;
     padding: 10px;
-    gap: 5px;                  /* space between flex items */
     background-color: #f0f0f0;
   }
 
-  /* Flex Items */
-  .item {
+  /* FLEX ITEMS */
+  .flex-item {
     background-color: #4CAF50;
     color: white;
     padding: 20px;
-    flex: 1 1 100px;            /* flex-grow | flex-shrink | flex-basis */
-    order: 0;                    /* order: changes position in container */
-    align-self: auto;            /* auto | flex-start | flex-end | center | baseline | stretch */
     text-align: center;
+    flex: 1 1 100px;      /* flex-grow | flex-shrink | flex-basis */
+    order: 0;             /* default order, changes visual order */
+    align-self: auto;     /* override align-items for individual item: auto | flex-start | flex-end | center | baseline | stretch */
+    /* min-width, max-width, min-height, max-height can also be used */
   }
-  </style>
+
+  /* ========================= */
+  /* GRID CONTAINER */
+  /* ========================= */
+  .grid-container {
+    display: grid;                       /* activate grid layout */
+    grid-template-columns: repeat(3, 1fr); /* define 3 equal width columns */
+    grid-template-rows: 100px 100px;       /* define 2 rows */
+    gap: 10px;                             /* gap between rows & columns (row-gap | column-gap) */
+    justify-items: center;                 /* align items horizontally inside cell: start | end | center | stretch */
+    align-items: center;                   /* align items vertically inside cell: start | end | center | stretch */
+    justify-content: start;                /* align entire grid horizontally inside container: start | end | center | space-between | space-around | space-evenly | stretch */
+    align-content: start;                  /* align entire grid vertically inside container: start | end | center | space-between | space-around | stretch */
+    border: 2px dashed #333;
+    padding: 10px;
+    margin-top: 40px;
+    background-color: #e0f7fa;
+  }
+
+  /* GRID ITEMS */
+  .grid-item {
+    background-color: #ff5722;
+    color: white;
+    text-align: center;
+    line-height: 80px;
+    width: 80px;      /* can use px, %, fr, auto */
+    height: 80px;
+    /* grid-column: 1 / 3;   span multiple columns */
+    /* grid-row: 1 / 2;      span multiple rows */
+    /* justify-self / align-self: override container alignment for specific item */
+  }
+
+</style>
 </head>
 <body>
-   <!--FLEX BOX
-   IT IS ONE DIMENTIONAL
-   flex-direction: row | column | row-reverse | column-reverse
-   display: flex;              /* activates flexbox */
 
+  <!-- ========================= -->
+  <!-- FLEXBOX DEMO -->
+  <!-- ========================= -->
+  <h2>Flexbox Demo</h2>
+  <div class="flex-container">
+    <div class="flex-item">Item 1</div>
+    <div class="flex-item">Item 2</div>
+    <div class="flex-item">Item 3</div>
+    <div class="flex-item">Item 4</div>
+  </div>
 
+  <!-- ========================= -->
+  <!-- GRID DEMO -->
+  <!-- ========================= -->
+  <h2>Grid Demo</h2>
+  <div class="grid-container">
+    <div class="grid-item">A</div>
+    <div class="grid-item">B</div>
+    <div class="grid-item">C</div>
+    <div class="grid-item">D</div>
+    <div class="grid-item">E</div>
+    <div class="grid-item">F</div>
+  </div>
 
-flex-direction: row;         /* main axis direction */
-
-
-flex-wrap: nowrap | wrap | wrap-reverse;  /* whether items wrap */
-
-
-justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;  /* main axis alignment */
-
-
-align-items: flex-start | flex-end | center | baseline | stretch;  /* cross axis alignment */
-
-
-align-content: flex-start | flex-end | center | space-between | space-around | stretch; /* multi-line cross-axis alignment */
-
-
-gap: 10px; /* space between items (modern way instead of margin) */
-
-    --> 
-<h2>Flexbox Demo</h2>
-<div class="container">
-  <div class="item">Item 1</div>
-  <div class="item">Item 2</div>
-  <div class="item">Item 3</div>
-  <div class="item">Item 4</div>
-</div>
 </body>
 </html>
