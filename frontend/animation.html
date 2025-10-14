@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Transitions & Animations Playground</title>
+<style>
+/* ----------------------------
+   GENERAL BODY STYLES
+---------------------------- */
+body {
+  font-family: Arial, sans-serif;  /* Font for the page */
+  background-color: #f0f0f0;       /* Light gray background */
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;                        /* Space between sections */
+}
+
+/* ----------------------------
+   TRANSITION BOX
+---------------------------- */
+.transition-box {
+  width: 200px;
+  height: 200px;
+  background-color: #3498db;        /* Blue box */
+  color: white;
+  display: flex;
+  justify-content: center;          /* Center text horizontally */
+  align-items: center;              /* Center text vertically */
+  font-size: 1.5rem;
+  border-radius: 15px;              /* Rounded corners */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Shadow */
+  
+  /* TRANSITION PROPERTIES */
+  transition-property: transform, background-color, box-shadow; /* Properties to animate */
+  transition-duration: 0.5s;       /* Duration of transition */
+  transition-timing-function: ease-in-out; /* Speed curve */
+  transition-delay: 0s;            /* Delay before start */
+}
+
+/* HOVER EFFECT */
+.transition-box:hover {
+  transform: scale(1.1) rotate(10deg); /* Scale and rotate on hover */
+  background-color: #2ecc71;          /* Change background */
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3); /* Bigger shadow */
+}
+
+/* ----------------------------
+   ANIMATION BOX
+---------------------------- */
+@keyframes float {
+  0% { transform: translateY(0); background-color: #e74c3c; }
+  50% { transform: translateY(-30px); background-color: #c0392b; }
+  100% { transform: translateY(0); background-color: #e74c3c; }
+}
+
+.animation-box {
+  width: 150px;
+  height: 150px;
+  background-color: #e74c3c;        /* Red box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 15px;
+  
+  /* ANIMATION PROPERTIES */
+  animation-name: float;             /* Keyframe name */
+  animation-duration: 3s;            /* Duration of one cycle */
+  animation-timing-function: ease-in-out; /* Speed curve */
+  animation-delay: 0s;               /* Wait before start */
+  animation-iteration-count: infinite; /* Loop forever */
+  animation-direction: alternate;    /* Alternate forward/backward */
+  animation-fill-mode: forwards;     /* Preserve last frame */
+}
+
+/* ----------------------------
+   RESPONSIVE DESIGN
+---------------------------- */
+@media (max-width: 768px) {
+  .transition-box {
+    width: 180px;
+    height: 180px;
+    font-size: 1.2rem;
+  }
+  .animation-box {
+    width: 130px;
+    height: 130px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .transition-box {
+    width: 150px;
+    height: 150px;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+  .animation-box {
+    width: 100px;
+    height: 100px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- TRANSITION BOX -->
+<div class="transition-box">Hover Me</div>
+
+<!-- ANIMATION BOX -->
+<div class="animation-box">Float</div>
+
+</body>
+</html>
